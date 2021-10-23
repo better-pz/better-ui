@@ -1,24 +1,18 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-
-function App() {
+import Button ,{ButtonType,ButtonSize} from './components/Button/button'
+const App: React.FC = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Button>button</Button>
+      <Button btnType={ButtonType.Danger} size={ButtonSize.Large}>button</Button>
+      <Button btnType={ButtonType.Link} href="百度" >button</Button>
+      <Button btnType={ButtonType.Link} >button</Button>
+      <Button disabled>button</Button>
+
+      <h2>h1</h2>
+      <h2>h2</h2>
+      <a href="https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/anchor-is-valid.md jsx-a11y/anchor-is-valid  ">a标签的样式</a>
     </div>
   );
 }
