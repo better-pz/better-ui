@@ -6,7 +6,7 @@ export enum ButtonSize {
   Small = 'sm'
 }
 
-export enum ButtonType {
+export enum type {
   Primary = 'primary',
   Default = 'default',
   Danger = 'danger',
@@ -16,7 +16,7 @@ interface BaseButtonProps {
   className?: string;
   disabled?: boolean;
   size?: ButtonSize;
-  btnType?: ButtonType;
+  btnType?: type;
   href?: string;
   children: React.ReactNode;
 }
@@ -25,10 +25,10 @@ const Button: React.FC<BaseButtonProps> = (props) => {
   const classes = classNames("btn", className, {
     [`btn-${btnType}`]: btnType, // 当传入了 btnType 为 lg 时，添加类名 btn-lg
     [`btn-${size}`]: size,
-    'disabled': btnType === ButtonType.Link && disabled,
+    'disabled': btnType === type.Link && disabled,
   }
   )
-  if (btnType === ButtonType.Link && href) {
+  if (btnType === type.Link && href) {
     return (
       <a href={href} className={classes}>
         {children}
@@ -47,6 +47,6 @@ const Button: React.FC<BaseButtonProps> = (props) => {
 }
 Button.defaultProps = {
   disabled: false,
-  btnType: ButtonType.Default
+  btnType: type.Default
 }
 export default Button
